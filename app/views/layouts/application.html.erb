@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div class="container-md">
+    <div class="container">
         <% flash.each do |key , value| %>
           <%= tag.div value, class: "alert alert-success #{key} my-3", role: 'alert' %>
         <% end %>  
