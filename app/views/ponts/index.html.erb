@@ -1,14 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<div class="row text-center mt-5">
+  <div class="col-1 col-sm-1"></div>
+  <div class="col-10 col-sm-10">
 
-<h1>Ponts</h1>
+    <p style="color: green"><%= notice %></p>
+    
 
-<div id="ponts">
-  <% @ponts.each do |pont| %>
-    <%= render pont %>
-    <p>
-      <%= link_to "Show this pont", pont %>
-    </p>
-  <% end %>
+    <h1 class="display-5 fw-bold text-body-emphasis">Время понтов!</h1>
+    <p class="lead mb-4"> Прошедший год был наверняка насыщен событиями, и уверен, что у каждого из вас есть чем похвастаться. Давайте делиться своими яркими моментами здесь, анонимно. Без скромности расскажите о своих достижениях за этот год – будем вместе создавать коллекцию понтов! И помните, что ваш понт может вдохновить кого-то другого на крутые свершения.</p>
+  
+
+    <%= render "form", pont: Pont.new %>
+
+
+    <div class="mt-4">
+      <h1 class="display-5 fw-bold  text-center text-body-emphasis">Другие понты:</h1>
+    </div>
+
+    <div id="ponts">
+      <% @ponts.each do |pont| %>
+        <%= render pont %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-1 col-sm-1"></div>
 </div>
 
-<%= link_to "New pont", new_pont_path %>
+
+
+
+
+
+
+

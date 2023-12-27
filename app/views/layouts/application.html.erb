@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ponts</title>
+    <title>Понты дороже денег</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-md">
+        <% flash.each do |key , value| %>
+          <%= tag.div value, class: "alert alert-success #{key} my-3", role: 'alert' %>
+        <% end %>  
+        <%= yield %>
+    </div>
   </body>
 </html>

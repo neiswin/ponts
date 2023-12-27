@@ -3,7 +3,7 @@ class PontsController < ApplicationController
 
   # GET /ponts or /ponts.json
   def index
-    @ponts = Pont.all
+    @ponts = Pont.all.order(created_at: :desc)
   end
 
   # GET /ponts/1 or /ponts/1.json
@@ -13,6 +13,7 @@ class PontsController < ApplicationController
   # GET /ponts/new
   def new
     @pont = Pont.new
+    @ponts = Pont.all
   end
 
   # GET /ponts/1/edit
@@ -26,9 +27,11 @@ class PontsController < ApplicationController
     respond_to do |format|
       if @pont.save
         format.html { redirect_to pont_url(@pont), notice: "Pont was successfully created." }
+        format.turbo_stream {render :create, locals: {pont: @pont}}
         format.json { render :show, status: :created, location: @pont }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream {render :new, status: :unprocessable_entity, locals: {pont: @pont}}
         format.json { render json: @pont.errors, status: :unprocessable_entity }
       end
     end

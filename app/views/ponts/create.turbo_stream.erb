@@ -1,0 +1,8 @@
+<%= turbo_stream.prepend "ponts" do %>
+ <%= render partial: "pont", locals: {pont: @pont} %>
+<% end %>
+
+
+<%= turbo_stream.replace "new_pont",
+    partial: "form",
+    locals: {pont: Pont.new} %>

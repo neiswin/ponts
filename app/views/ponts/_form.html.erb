@@ -1,22 +1,25 @@
-<%= form_with(model: pont) do |form| %>
-  <% if pont.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pont.errors.count, "error") %> prohibited this pont from being saved:</h2>
+<%= turbo_frame_tag "new_pont" do %>
+  <%= form_with(model: pont) do |form| %>
+      <% if pont.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(pont.errors.count, "error") %> prohibited this pont from being saved:</h2>
 
-      <ul>
-        <% pont.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% pont.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+    <div class="mb-2 col-lg-6 mx-auto">     
+      <div class="mb-2">
+        <%= form.text_area :body, size: "10x5", placeholder: "Начни печатать понты здесь", class:'form-control'  %>
+      </div>
+    </div>
+
+    <div class="mb-2 ">
+      <%= form.submit "Понтануться", class: "btn btn-outline-success btn-lg px-4 gap-3"%>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_field :body %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
