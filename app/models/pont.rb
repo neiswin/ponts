@@ -1,0 +1,2 @@
+class Pont < ApplicationRecord
+end

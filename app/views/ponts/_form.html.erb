@@ -1,0 +1,22 @@
+<%= form_with(model: pont) do |form| %>
+  <% if pont.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pont.errors.count, "error") %> prohibited this pont from being saved:</h2>
+
+      <ul>
+        <% pont.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

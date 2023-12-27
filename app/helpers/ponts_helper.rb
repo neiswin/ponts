@@ -1,0 +1,2 @@
+module PontsHelper
+end
